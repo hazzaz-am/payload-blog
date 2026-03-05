@@ -150,6 +150,7 @@ export interface User {
 export interface Media {
   id: number;
   alt: string;
+  blurDataUrl: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -188,6 +189,9 @@ export interface Article {
   contentSummary: string;
   readTimeInMins?: number | null;
   coverImage: number | Media;
+  author: number | ArticleAuthor;
+  status: 'Draft' | 'Published';
+  publishedAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -313,6 +317,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  blurDataUrl?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -336,6 +341,9 @@ export interface ArticlesSelect<T extends boolean = true> {
   contentSummary?: T;
   readTimeInMins?: T;
   coverImage?: T;
+  author?: T;
+  status?: T;
+  publishedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }

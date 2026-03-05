@@ -65,6 +65,25 @@ export const Articles: CollectionConfig = {
       name: 'author',
       type: 'relationship',
       relationTo: 'article-authors',
+      required: true,
+    },
+    {
+      name: 'status',
+      type: 'select',
+      required: true,
+      options: ['Draft', 'Published'],
+      defaultValue: 'Draft',
+    },
+    {
+      name: 'publishedAt',
+      type: 'date',
+      required: true,
+      admin: {
+        condition: (data) => data.status === 'Published',
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+      },
     },
   ],
 }
