@@ -2,6 +2,7 @@ import { convertLexicalToPlaintext } from '@payloadcms/richtext-lexical/plaintex
 import { CollectionConfig } from 'payload'
 import { generateContentSummaryHook } from './hooks/generate-content-summary.hook'
 import { generateSlugHook } from './hooks/generate-slug.hooks'
+import { ARTICLE_STATUS_OPTIONS } from './constants';
 
 export const Articles: CollectionConfig = {
   slug: 'articles',
@@ -71,7 +72,7 @@ export const Articles: CollectionConfig = {
       name: 'status',
       type: 'select',
       required: true,
-      options: ['Draft', 'Published'],
+      options: Object.values(ARTICLE_STATUS_OPTIONS),
       defaultValue: 'Draft',
     },
     {
