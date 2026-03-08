@@ -3,3 +3,5 @@ export const ARTICLE_STATUS_OPTIONS = {
   DRAFT: 'Draft',
   PUBLISHED: 'Published',
 } as const
+
+export const ARTICLE_CACHE_TAG = "articles"

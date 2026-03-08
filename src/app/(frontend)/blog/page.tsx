@@ -1,10 +1,10 @@
-import { getArticles } from '@/collections/Articles/articleQuery'
+import { getPublishedArticles } from '@/collections/Articles/articleQuery'
 import { relationIsObject } from '@/lib/payload/helpers/relations-is-object'
 import { warn } from 'console'
 import ArticleCard from './_components/article-card'
 
 export default async function BlogIndexPage() {
-  const articles = await getArticles()
+  const articles = await getPublishedArticles()
   console.log(articles[0])
   if (!articles.length) {
     return <p>No Articles FOund</p>
